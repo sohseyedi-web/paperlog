@@ -45,7 +45,7 @@ const addPaper = () => {
             id="title"
             name="title"
             className="outline-none my-2 md:my-0 w-full border border-indigo-300 rounded-md px-2 h-[45px]"
-            {...formik.getFieldProps("name")}
+            {...formik.getFieldProps("title")}
           />
           <input
             type={"text"}
