@@ -15,9 +15,14 @@ const Navbar = () => {
               <RiIcon.RiUser6Line size={25} />
             </div>
           </Link>
-          <div className="cursor-pointer flex items-center justify-center border w-[45px] h-[45px] border-indigo-300 dark:border-indigo-800 text-indigo-600 rounded-full">
-            <RiIcon.RiFingerprintFill size={25} />
-          </div>
+          <Link
+            href={"/addpaper"}
+            className="cursor-pointer flex items-center justify-center border w-[45px] h-[45px] border-indigo-300 dark:border-indigo-800 text-blue-500 rounded-full"
+          >
+            <div className="cursor-pointer flex items-center justify-center border w-[45px] h-[45px] border-indigo-300 dark:border-indigo-800 text-indigo-600 rounded-full">
+              <RiIcon.RiQuillPenLine size={25} />
+            </div>
+          </Link>
         </div>
       </div>
     </div>
