@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   }
   if (method === "POST") {
     try {
-      const formData = req.body;
+      const {formData} = req.body;
       await Papers.create(formData);
       const papers = await Papers.find({});
       res.status(200).json(papers);

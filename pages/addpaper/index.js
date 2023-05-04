@@ -1,24 +1,33 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const initialValues = {
   title: "",
   hashtag: "",
-  message: "",
+  description: "",
   status: "",
 };
 
 const validationSchema = Yup.object({
   title: Yup.string().required("مقداری وارد نشده است"),
-  hashtag: Yup.string(),
-  message: Yup.string().required("مقداری وارد نشده است"),
+  hashtag: Yup.string().required(),
+  description: Yup.string().required("مقداری وارد نشده است"),
   status: Yup.string().required(),
 });
-
 const addPaper = () => {
-  const onSubmit = (values) => {
-    console.log(values);
+  const onSubmit = (formData, { resetForm }) => {
+    axios
+      .post("http://localhost:3000/api/papers", { formData })
+      .then((res) => {
+        console.log(res.data);
+        toast.success("Successfully toasted!")
+      })
+      .catch((err) => console.log(err.message));
+
+    resetForm();
   };
 
   const formik = useFormik({
@@ -59,10 +68,10 @@ const addPaper = () => {
         <div className="my-3">
           <textarea
             placeholder="Message"
-            id="message"
-            name="message"
+            id="description"
+            name="description"
             className="outline-none w-full py-2 border border-indigo-300 rounded-md px-2 h-[145px]"
-            {...formik.getFieldProps("message")}
+            {...formik.getFieldProps("description")}
           />
         </div>
         <div className="flex items-center justify-between">
