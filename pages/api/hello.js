@@ -1,5 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import paperConnect from "./../../servers/utils/paperConnection";
 
 export default function handler(req, res) {
-  res.status(200).json({ name: 'John Doe' })
+  paperConnect();
+  res.status(200).json({ name: "John Doe" });
 }
