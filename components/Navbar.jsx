@@ -32,7 +32,7 @@ const Navbar = () => {
               </div>
 
               <Link
-                href={"/addpaper"}
+                href={"/add"}
                 className="cursor-pointer flex items-center justify-center border w-[45px] h-[45px] border-indigo-300 dark:border-indigo-800 text-blue-500 rounded-full"
               >
                 <div className="cursor-pointer flex items-center justify-center border w-[45px] h-[45px] border-indigo-300 dark:border-indigo-800 text-indigo-600 rounded-full">
