@@ -1,8 +1,18 @@
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import React from "react";
 import * as RiIcon from "react-icons/ri";
 
 const Auth = () => {
+  const { status } = useSession();
+  const router = useRouter();
+
+  const sinInPaper = () => {
+    signIn("github");
+
+    router.push("/");
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center">
       <div className="w-[90%] lg:w-[35%] md:w-[75%]  mx-auto container  rounded-md border border-indigo-300 shadow-md py-4 px-2">
@@ -30,12 +40,13 @@ const Auth = () => {
         </form>
         <div className="mt-5 flex items-center justify-center gap-x-4">
           <button
-            onClick={() => signIn("github")}
+            onClick={sinInPaper}
             className="cursor-pointer flex items-center justify-center border w-[45px] h-[45px] border-indigo-300 dark:border-indigo-800 text-indigo-600 rounded-full transition-all duration-200 hover:scale-110 scale-100"
           >
             <RiIcon.RiGithubLine size={25} />
           </button>
           <button
+            disabled
             onClick={() => signIn("google")}
             className="cursor-pointer flex items-center justify-center border w-[45px] h-[45px] border-indigo-300 dark:border-indigo-800 text-indigo-600 rounded-full transition-all duration-200 hover:scale-110 scale-100"
           >
