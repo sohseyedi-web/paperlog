@@ -21,7 +21,7 @@ const validationSchema = Yup.object({
   description: Yup.string().required("مقداری وارد نشده است"),
   status: Yup.string().required("مقداری وارد نشده است"),
 });
-const addPaper = () => {
+const PaperForm = () => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -31,7 +31,7 @@ const addPaper = () => {
     },
   });
 
-  const addPaper = (formData, { resetForm }) => {
+  const addFormHandler = (formData, { resetForm }) => {
     const items = {
       ...formData,
     };
@@ -43,7 +43,7 @@ const addPaper = () => {
 
   const formik = useFormik({
     initialValues,
-    onSubmit: addPaper,
+    onSubmit: addFormHandler,
     validationSchema,
     validateOnMount: true,
     enableReinitialize: true,
@@ -139,4 +139,4 @@ const addPaper = () => {
   );
 };
 
-export default addPaper;
+export default PaperForm;
