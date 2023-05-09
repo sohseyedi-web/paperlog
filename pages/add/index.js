@@ -1,9 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import { toast } from "react-hot-toast";
-import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useMutation } from "react-query";
 import { postPapers } from "../../lib/helpers";
@@ -23,13 +21,6 @@ const validationSchema = Yup.object({
 });
 const PaperForm = () => {
   const router = useRouter();
-
-  const { data: session } = useSession({
-    required: true,
-    onUnauthenticated() {
-      router.push("/auth");
-    },
-  });
 
   const { mutate, isLoading } = useMutation(postPapers, {
     onSuccess: (data) => {

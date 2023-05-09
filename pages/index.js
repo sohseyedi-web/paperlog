@@ -1,8 +1,6 @@
 import Head from "next/head";
 import { useQuery } from "react-query";
 import { getPapers } from "./../lib/helpers";
-import * as RiIcon from "react-icons/ri";
-import Link from "next/link";
 import PaperBox from "../components/PaperBox";
 
 export default function Home() {
